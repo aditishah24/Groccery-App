@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store</title>
+    <link rel="icon" type="image/icon" href="grocessary-removebg-preview.png">
+    <!--font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+</head>
+<body>
+    <!--header-->
+    <header class="header">
+        <a href="#" class="logo"><i class="fa fa-shopping-basket"></i>Grocery</a>
+
+        <nav class="navbar">
+            <a href="#HOME">HOME</a>
+            <a href="#FEATURES">FEATURES</a>
+            <a href="#PRODUCTS">PRODUCTS</a>
+            <a href="#CATEGORIES">CATEGORIES</a>
+            <a href="#REVIEWS">REVIEWS</a>
+            <a href="#BLOCKS">BLOCKS</a>
+        </nav>
+
+    <div class="icons">
+        <div class="fa fa-bars" id="menu-btn"></div>
+        <div class="fa fa-search" id="search-btn"></div>
+        <div class="fa fa-shopping-cart" id="cart-btn"></div>
+        <div class="fa fa-user" id="login-btn"></div>
+    </div>
+
+    <form class="search">
+        <input type="search" id="search" placeholder="Search Here....">
+        <label for="search" class="fa fa-search"></label>
+    </form>
+
+    <div class="shopping-cart">
+        <div class="box">
+            <i class="fa fa-trash"></i>
+            <img src="data:image/jpeg;base64,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">
+            <div class="content">
+                <h3> Watermelon</h3>
+                <span class="price"> Rs 149/-</span>
+                <span class="quantity"> Qty : 1</span>
+            </div>
+        </div>
+    
+    <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYczOAvYzsI9h1vdD1oH0MRDtICCcMVprvc7Gjgtt8KodPWTfXo-08hYB47S75dB0bxTc&usqp=CAU">
+        <div class="content">
+            <h3> Onion</h3>
+            <span class="price"> Rs 49/-</span>
+            <span class="quantity"> Qty : 2</span>
+        </div>
+    </div>
+    <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="https://freepngimg.com/thumb/ladyfinger/42356-1-lady-finger-free-download-png-hd-thumb.png">
+        <div class="content">
+            <h3> Lady Fingers</h3>
+            <span class="price"> Rs 69/-</span>
+            <span class="quantity"> Qty : 1kg</span>
+        </div>
+    </div>
+
+    <div class="total"> Total : Rs267/- </div>
+    <a href="#" class="btn">Checkout</a>
+    </div>
+
+    <form action="" class="login">
+        <h3> Login Now </h3>
+        <input type="email" placeholder="Enter your Email" class="box">
+        <input type="password" placeholder="Enter your Password" class="box">
+        <p> Forgot your Password, <a href="#" >Click Here </a></p>
+        <p> Don't have an account, <a href="#"> Create Now</a></p>
+        <input type="submit" value="Login Now" class="btn">
+    </form>
+    </header>
+
+
+
+
+<!-- Banner section -->
+<section class="home" id="home">
+    <div class="content">
+        <h3> Fresh And <span>Organic </span>Products For You</h3>
+        <p> The Website has the indent of showcasing Grocessary Store.</p>
+        <a href="#" class="btn">Shop Now</a>
+    </div>
+</section>
+
+
+<!--Feature Section-->
+<section class="features" id="features">
+    <h1 class="heading"> Our <span> Features </span></h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="fruits-removebg-preview.png" height="200px" width="210px">
+            <h3> Fresh And Organic</h3>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                Minus non exercitationem consectetur.<br></p>
+
+                <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="box">
+            <img src="delivery-removebg-preview.png" height="200px" width="210px">
+            <h3> Fresh And Organic</h3>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                Minus non exercitationem consectetur.<br></p>
+                <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="box">
+            <img src="payment-removebg-preview.png" height="200px" width="210px">
+            <h3> Fresh And Organic</h3>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                Minus non exercitationem consectetur.<br></p>
+                <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!--Product section-->
+<section class="products" id="products">
+    <h1 class="heading"> Our <span> Products </span></h1>
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide box">
+                <img src="oranges-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Orange </h1>
+                <div class="price">Rs 39/- - 59/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="onions-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Onion </h1>
+                <div class="price">Rs 49/- - 69/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="apples-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Apple </h1>
+                <div class="price">Rs 79/- - 109/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide box">
+                <img src="potatoes-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Orange </h1>
+                <div class="price">Rs 39/- - 59/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="ladyfinger-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Orange </h1>
+                <div class="price">Rs 39/- - 59/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="cabbage-removebg-preview.png" height="200px" width="210px">
+                <h1> Fresh Orange </h1>
+                <div class="price">Rs 39/- - 59/-</div>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <a href="#" class="btn">Add To Cart</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Categories-->
+<section class="categories" id="categories">
+    <h1 class="heading"> Product <span> Categories</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="snacks-removebg-preview.png" height="180px" width="200px">
+            <h3> Snacks </h3>
+            <p> Upto 20% Off</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+
+        <div class="box">
+            <img src="fruits-removebg-preview.png" height="180px" width="200px">
+            <h3> Fresh Fruits </h3>
+            <p> Upto 35% Off</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+
+        <div class="box">
+            <img src="dairyproducts-removebg-preview (1).png" height="150px" width="180px">
+            <h3> Dairy Products </h3>
+            <p> Upto 55% Off</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+
+        <div class="box">
+            <img src="vegies-removebg-preview.png" height="180px" width="200px">
+            <h3>Fresh Vegetables </h3>
+            <p> Upto 60% Off</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Review Section -->
+<section class="review" id="review">
+    <h1 class="heading"> Customer's <span>Review</span></h1>
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide box">
+                <img src="pic_1-removebg-preview.png" >
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Fugit tempore delectus optio minima quisquam.</p>
+                <h3> John Deo </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="pic_2-removebg-preview.png" >
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Fugit tempore delectus optio minima quisquam.</p>
+                <h3> Josh Kevin </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="pic_3-removebg-preview.png" >
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Fugit tempore delectus optio minima quisquam.</p>
+                <h3> Sezzi Jas </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="pic_4-removebg-preview.png">
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Fugit tempore delectus optio minima quisquam.</p>
+                <h3> Flash Kong </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blogs" id="blogs">
+    <h1 class="heading"> Our <span>Blog's</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="img1-removebg-preview.png">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fa fa-user"></i> By User </a>
+                    <a href="#"><i class="fa fa-calendar"></i> 1st May,2022 </a>
+                </div>
+                    <h3> Fresh And Organic Vegetables And Fruits </h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+                     Sit perferendis quia, commodi blanditiis laborum.</p>
+                    <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="img2-removebg-preview.png">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fa fa-user"></i> By User </a>
+                    <a href="#"><i class="fa fa-calendar"></i> 1st May,2022 </a>
+                </div>
+                    <h3> Fresh And Organic Vegetables And Fruits </h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+                     Sit perferendis quia, commodi blanditiis laborum.</p>
+                    <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="img3-removebg-preview.png">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fa fa-user"></i> By User </a>
+                    <a href="#"><i class="fa fa-calendar"></i> 1st May,2022 </a>
+                </div>
+                    <h3> Fresh And Organic Vegetables And Fruits </h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+                     Sit perferendis quia, commodi blanditiis laborum.</p>
+                    <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+
+    </div>
+    </section>
+
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3> Groco <i class="fa fa-shopping-basket"></i></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+                 Necessitatibus sapiente, dolorum dolore, ratione beatae porro qui</p>
+
+                 <div class="share">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                 </div>
+            </div>
+
+            <div class="box">
+            <h3> Contact Info </h3>
+            <a href="#" class="links"><i class="fa fa-phone"></i> +91 1234567899</a>
+            <a href="#" class="links"><i class="fa fa-phone"></i> +91 1956913501</a>
+            <a href="#" class="links"><i class="fa fa-envelope"></i> info@gmail.com</a>
+            <a href="#" class="links"><i class="fa fa-map-marker"></i> Ahmedabad</a>
+            </div>
+            
+
+            <div class="box">
+                <h3> Quick Links </h3>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Home </a>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Features </a>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Products </a>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Categories </a>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Review </a>
+                <a href="#" class="links"><i class="fa fa-arrow-right"></i> Blogs</a>
+                </div>
+                
+
+                <div class="box">
+                    <h3> Newsletter </h3>
+                    <p> Subscribe for Latest Updates</p>
+                    <input type="email" placeholder="Your Email" class="email">
+                    <input type="submit" value="Subscribe" class="btn">
+                    <img src="payment-removebg-preview (1).png" class="payment" height="150px" width="150px">
+                    </div>
+                
+
+        </div>
+
+        <div class="credit">Created by using <span>Html,Css and Js</span></div>
+    </section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="website.js"> 
+
+</script>
+</body>
+</html>
